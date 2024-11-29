@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hip-Hop Artists - Hip-Hop Pulse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Hip-Hop Pulse</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="latest.html">Latest</a></li>
+                <li><a href="artists.html" class="active">Artists</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search artists...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="artists-section">
+            <div class="section-header">
+                <h1>Hip-Hop Artists</h1>
+                <p>Discover and follow your favorite hip-hop artists</p>
+            </div>
+            <div class="artists-filters">
+                <button class="filter-btn active" data-filter="all">All Artists</button>
+                <button class="filter-btn" data-filter="trending">Trending</button>
+                <button class="filter-btn" data-filter="new">New School</button>
+                <button class="filter-btn" data-filter="legendary">Legendary</button>
+            </div>
+            <div id="artistsGrid" class="artists-grid">
+                <!-- Artist cards will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Hip-Hop Pulse. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="artists.js"></script>
+</body>
+</html>

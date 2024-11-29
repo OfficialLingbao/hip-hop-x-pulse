@@ -1,0 +1,16 @@
+{
+  "name": "hip-hop-x-pulse",
+  "version": "1.0.0",
+  "description": "Your Social Hip-Hop News Hub",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "build": "echo 'Static site - no build required'"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

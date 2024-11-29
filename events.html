@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Hip-Hop Pulse</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="events.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Hip-Hop Pulse</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="latest.html">Latest</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="events.html" class="active">Events</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Search events...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </nav>
+
+    <!-- Event Highlights -->
+    <section class="event-highlights">
+        <h1>Featured Events</h1>
+        <div class="highlights-grid">
+            <!-- Featured events will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Event Categories -->
+    <section class="event-categories">
+        <h2>Browse by Category</h2>
+        <div class="category-tabs">
+            <button class="category-tab active" data-category="all">All Events</button>
+            <button class="category-tab" data-category="concerts">Concerts</button>
+            <button class="category-tab" data-category="dance">Dance</button>
+            <button class="category-tab" data-category="film">Film</button>
+            <button class="category-tab" data-category="fashion">Fashion</button>
+        </div>
+        <div class="events-grid">
+            <!-- Events will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Interactive Map -->
+    <section class="event-map">
+        <h2>Find Events Near You</h2>
+        <div id="map" class="map-container">
+            <!-- Map will be initialized by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Hip-Hop Pulse</h3>
+                <p>Your premier destination for hip-hop news, music, and events.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="latest.html">Latest News</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hip-Hop Pulse. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="events.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile - Hip-Hop Pulse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Hip-Hop Pulse</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="latest.html">Latest News</a></li>
+                <li><a href="artists.html">Artists</a></li>
+                <li><a href="#">Music</a></li>
+                <li><a href="#">Events</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search artists...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="artist-profile">
+        <div class="artist-header">
+            <div class="artist-cover">
+                <!-- Background image set by JavaScript -->
+                <div class="artist-header-content">
+                    <div class="artist-avatar">
+                        <!-- Artist image set by JavaScript -->
+                    </div>
+                    <div class="artist-title">
+                        <h1><!-- Artist name set by JavaScript --></h1>
+                        <div class="artist-meta">
+                            <span><i class="fas fa-users"></i> <span class="followers"><!-- Followers set by JavaScript --></span></span>
+                            <span><i class="fas fa-compact-disc"></i> <span class="albums"><!-- Albums set by JavaScript --></span></span>
+                            <button class="follow-btn"><i class="fas fa-plus"></i> Follow</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="artist-content">
+            <div class="content-nav">
+                <button class="nav-btn active" data-section="overview">Overview</button>
+                <button class="nav-btn" data-section="music">Music</button>
+                <button class="nav-btn" data-section="videos">Videos</button>
+                <button class="nav-btn" data-section="news">News</button>
+                <button class="nav-btn" data-section="events">Events</button>
+            </div>
+
+            <div class="content-sections">
+                <!-- Overview Section -->
+                <section id="overview" class="content-section active">
+                    <div class="bio-section">
+                        <h2>Biography</h2>
+                        <div class="bio-content"><!-- Bio set by JavaScript --></div>
+                    </div>
+                    
+                    <div class="quick-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-trophy"></i>
+                            <h3>Awards</h3>
+                            <div class="stat-content"><!-- Awards set by JavaScript --></div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Achievements</h3>
+                            <div class="stat-content"><!-- Achievements set by JavaScript --></div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-microphone-alt"></i>
+                            <h3>Latest Release</h3>
+                            <div class="stat-content"><!-- Latest release set by JavaScript --></div>
+                        </div>
+                    </div>
+
+                    <div class="social-feed">
+                        <h2>Social Media</h2>
+                        <div class="social-grid"><!-- Social media content set by JavaScript --></div>
+                    </div>
+                </section>
+
+                <!-- Music Section -->
+                <section id="music" class="content-section">
+                    <div class="music-player">
+                        <h2>Top Tracks</h2>
+                        <div class="track-list"><!-- Tracks set by JavaScript --></div>
+                    </div>
+
+                    <div class="discography">
+                        <h2>Discography</h2>
+                        <div class="album-grid"><!-- Albums set by JavaScript --></div>
+                    </div>
+                </section>
+
+                <!-- Videos Section -->
+                <section id="videos" class="content-section">
+                    <div class="video-grid">
+                        <h2>Music Videos</h2>
+                        <div class="videos-container"><!-- Videos set by JavaScript --></div>
+                    </div>
+                    
+                    <div class="interviews">
+                        <h2>Interviews & Live Performances</h2>
+                        <div class="interview-grid"><!-- Interviews set by JavaScript --></div>
+                    </div>
+                </section>
+
+                <!-- News Section -->
+                <section id="news" class="content-section">
+                    <div class="news-feed">
+                        <h2>Latest News</h2>
+                        <div class="news-grid"><!-- News set by JavaScript --></div>
+                    </div>
+                </section>
+
+                <!-- Events Section -->
+                <section id="events" class="content-section">
+                    <div class="upcoming-events">
+                        <h2>Upcoming Shows</h2>
+                        <div class="events-list"><!-- Events set by JavaScript --></div>
+                    </div>
+                    
+                    <div class="tour-map">
+                        <h2>Tour Map</h2>
+                        <div class="map-container"><!-- Map set by JavaScript --></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Hip-Hop Pulse. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="artist-profile.js"></script>
+</body>
+</html>

@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hip-Hop Pulse - Music</title>
+    <title>Hip-Hop Music - Hip-Hop Pulse</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="music2.js" as="script">
+    <link rel="preload" href="theme.js" as="script">
+    
+    <!-- Defer non-critical resources -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Defer JavaScript -->
+    <script src="theme.js" defer></script>
 </head>
 <body>
     <header>
@@ -17,35 +30,93 @@
                 <li><a href="artists.html">Artists</a></li>
                 <li><a href="music.html" class="active">Music</a></li>
                 <li><a href="events.html">Events</a></li>
-            </ul>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-                <button><i class="fas fa-search"></i></button>
+                            </ul>
+            <div class="nav-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <button class="nav-theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </nav>
     </header>
 
+    <div class="page-banner music-banner">
+        <div class="banner-content">
+            <h1>Hip-Hop Music</h1>
+            <p>Discover the latest releases, trending tracks, and exclusive playlists</p>
+            <div class="banner-overlay"></div>
+        </div>
+    </div>
+
+    <section class="featured-section">
+        <h1>Featured Albums</h1>
+        <div class="album-grid" id="featuredAlbums"></div>
+    </section>
+    <br></body><br>
+    <section class="new-releases">
+        <h1>New Releases</h1>
+        <div class="album-grid" id="newReleases"></div>
+    </section>
+    <br></body><br>
+    <section class="trending">
+        <h1>Trending Tracks</h1>
+        <div class="tracks-list" id="trendingTracks"></div>
+    </section> 
+
     <main class="content">
-        <section class="featured-section">
-            <h2>Featured Albums</h2>
-            <div class="album-grid" id="featuredAlbums"></div>
-        </section>
-
-        <section class="new-releases">
-            <h2>New Releases</h2>
-            <div class="album-grid" id="newReleases"></div>
-        </section>
-
-        <section class="trending">
-            <h2>Trending Tracks</h2>
-            <div class="tracks-list" id="trendingTracks"></div>
-        </section>
+        
+        
     </main>
-
+    <!-- Newsletter Section -->
+    <div class="newsletter-section">
+        <div class="newsletter-content">
+            <div style="border-top: 2px solid gold; width: 100%; margin-bottom: 1rem;"></div>
+            <h2>Stay Tuned with Hip-Hop Pulse</h2>
+            <p>Get the latest hip-hop news, events, and exclusive updates!</p>
+            <form class="newsletter-form">
+                <input type="email" id="zipcode-input" placeholder="Enter your email" required>
+                <button type="button" id="zipcode-search-btn">Subscribe</button>
+            </form>
+            <div class="newsletter-message"></div>
+        </div>
+    </div>
+    <!--Footer-->
     <footer>
-        <p>&copy; 2024 Hip-Hop Pulse. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Hip-Hop X Pulse</h3>
+                <p>Your premier source for hip-hop news, music, and culture. Stay updated with the latest in the hip-hop world.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="latest.html">Latest News</a></li>
+                    <li><a href="artists.html">Artists</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hip-Hop Pulse. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a></p>
+        </div>
     </footer>
 
-    <script src="music.js"></script>
+    <script src="app.js"></script>
+    <script src="music2.js"></script>
 </body>
 </html>

@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hip-Hop Artists - Hip-Hop Pulse</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Hip-Hop Pulse - Artists</title>
+    
+     <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="latest.js" as="script">
+    <link rel="preload" href="theme.js" as="script">
+    
+    <!-- Defer non-critical resources -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Theme Script -->
+    <script src="theme.js" defer></script>
 </head>
 <body>
     <header>
@@ -19,37 +31,184 @@
                 <li><a href="music.html">Music</a></li>
                 <li><a href="events.html">Events</a></li>
             </ul>
-            <div class="search-bar">
-                <input type="text" placeholder="Search artists...">
-                <button><i class="fas fa-search"></i></button>
+            <div class="nav-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search artists...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <button class="nav-theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </nav>
     </header>
-
+        <!--Artists-->
     <main>
-        <section class="artists-section">
-            <div class="section-header">
-                <h1>Hip-Hop Artists</h1>
-                <p>Discover and follow your favorite hip-hop artists</p>
+        <section class="artists-banner">
+            <h1>Featured Artists</h1>
+            <p>Discover and explore the world of hip-hop artists</p>
+        </section>
+        <!--Kendrick Lamar-->
+        <section class="artists-grid">
+            <div class="artist-card">
+                <img src="https://variety.com/wp-content/uploads/2017/11/kendrick-lamar-variety-hitmakers.jpg?w=1000&h=562&crop=1" alt="Kendrick Lamar" class="artist-image">
+                <div class="artist-info">
+                    <h3>Kendrick Lamar</h3>
+                    <p>Grammy-winning rapper from Compton</p>
+                    <div class="artist-stats">
+                        <span><i class="fas fa-award"></i> 14 Grammys</span>
+                        <span><i class="fas fa-music"></i> 5 Albums</span>
+                    </div>
+                </div>
             </div>
-            <div class="artists-filters">
-                <button class="filter-btn active" data-filter="all">All Artists</button>
-                <button class="filter-btn" data-filter="trending">Trending</button>
-                <button class="filter-btn" data-filter="new">New School</button>
-                <button class="filter-btn" data-filter="legendary">Legendary</button>
+            <!--J. Cole-->
+            <div class="artist-card">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/j_cole_photo_by_isaac_brekken_wireimage_getty_503069628.jpg?resize=1200:*" alt="J. Cole" class="artist-image">
+                <div class="artist-info">
+                    <h3>J. Cole</h3>
+                    <p>Platinum-selling artist from Fayetteville</p>
+                    <div class="artist-stats">
+                        <span><i class="fas fa-award"></i> 1 Grammy</span>
+                        <span><i class="fas fa-music"></i> 6 Albums</span>
+                    </div>
+                </div>
             </div>
-            <div id="artistsGrid" class="artists-grid">
-                <!-- Artist cards will be dynamically inserted here -->
+            <!--Drake-->
+            <div class="artist-card">
+                <img src="https://media.newyorker.com/photos/66d0e1a0dbfcd564cf6b198b/master/w_2240,c_limit/Brickner-Wood-Drake.jpg" alt="Drake" class="artist-image">
+                <div class="artist-info">
+                    <h3>Drake</h3>
+                    <p>Record-breaking artist from Toronto</p>
+                    <div class="artist-stats">
+                        <span><i class="fas fa-award"></i> 4 Grammys</span>
+                        <span><i class="fas fa-music"></i> 7 Albums</span>
+                    </div>
+                </div>
+            </div>
+            <!--Megan Thee Stallion-->
+            <div class="artist-card">
+                <img src="https://www.hollywoodreporter.com/wp-content/uploads/2024/04/MegTheStallionGettyImages-2148895255.jpg?w=1296&h=730&crop=1&resize=1000%2C563" alt="Megan Thee Stallion" class="artist-image">
+                <div class="artist-info">
+                    <h3>Megan Thee Stallion</h3>
+                    <p>Grammy-winning rapper from Houston</p>
+                    <div class="artist-stats">
+                        <span><i class="fas fa-award"></i> 3 Grammys</span>
+                        <span><i class="fas fa-music"></i> 2 Albums</span>
+                    </div>
+                </div>
+            </div>
+            <!--Tyler, the Creator-->
+            <div class="artist-card">
+                <img src="https://www.musicbusinessworldwide.com/files/2024/01/Tyler-the-Creator-648x379.jpg" alt="Tyler, the Creator" class="artist-image">
+                <div class="artist-info">
+                    <h3>Tyler, the Creator</h3>
+                    <p>Innovative rapper and producer</p>
+                    <div class="artist-stats">
+                        <span><i class="fas fa-award"></i> 2 Grammys</span>
+                        <span><i class="fas fa-music"></i> 6 Albums</span>
+                    </div>
+                </div>
+            </div>
+            <!--Jay-Z-->
+            <div class="artist-card">
+                <img src="https://thegrio.com/wp-content/uploads/2024/09/Los-Angeles-Premiere-Of-Sony-Pictures-The-Book-Of-Clarence---Arrivals-1911124754.jpg?w=1074&h=605&crop=1" alt="Jay-Z" class="artist-image">
+                <div class="artist-info">
+                    <h3>Jay-Z</h3>
+                    <p>Legendary rapper and entrepreneur</p>
+                    <div class="artist-stats">
+                        <span><i class="fas fa-award"></i> 24 Grammys</span>
+                        <span><i class="fas fa-music"></i> 13 Albums</span>
+                    </div>
+                </div>
             </div>
         </section>
-    </main>
+        <!--Trending Artists-->
 
+        <style>
+            .artists-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+
+            .artist-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .artist-image {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 10px 10px 0 0;
+            }
+
+            .artist-info {
+                padding: 20px;
+            }
+
+            .artist-stats {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+        </style>
+
+        <!--Trending Artists-->
+        <!--Music Section-->
+    </main>
+    <!-- Newsletter Section -->
+    <div class="newsletter-section">
+        <div class="newsletter-content">
+            <div style="border-top: 2px solid gold; width: 100%; margin-bottom: 1rem;"></div>
+            <h2>Stay Tuned with Hip-Hop Pulse</h2>
+            <p>Get the latest hip-hop news, events, and exclusive updates!</p>
+            <form class="newsletter-form">
+                <input type="email" id="zipcode-input" placeholder="Enter your email" required>
+                <button type="button" id="zipcode-search-btn">Subscribe</button>
+            </form>
+            <div class="newsletter-message"></div>
+        </div>
+    </div>
+    <!--Footer-->
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 Hip-Hop Pulse. All rights reserved.</p>
+            <div class="footer-section">
+                <h3>About Hip-Hop X Pulse</h3>
+                <p>Your premier source for hip-hop news, music, and culture. 
+                    Stay updated with the latest in the hip-hop world.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="latest.html">Latest News</a></li>
+                    <li><a href="artists.html">Artists</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hip-Hop Pulse. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a></p>
         </div>
     </footer>
 
-    <script src="artists.js"></script>
+    <script src="app.js" defer></script>
 </body>
 </html>

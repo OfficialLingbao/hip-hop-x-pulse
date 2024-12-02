@@ -1,65 +1,68 @@
-# Hip-Hop X Pulse
+# Hip-Hop Pulse
 
-Your Social Hip-Hop News Hub
+A modern web application for hip-hop news, artist information, music releases, and events.
 
-## Deployment Steps
+## Features
 
-1. **Domain Setup**:
-   - Purchase the domain (hip-hoppulse.com) from a domain registrar (e.g., GoDaddy, Namecheap)
-   - Configure DNS settings to point to your hosting provider
-
-2. **Hosting Options**:
-
-   ### Option 1: Netlify (Recommended)
-   ```bash
-   # Install Netlify CLI
-   npm install -g netlify-cli
-
-   # Login to Netlify
-   netlify login
-
-   # Deploy site
-   netlify deploy --prod
-   ```
-
-   ### Option 2: GitHub Pages
-   1. Create a GitHub repository
-   2. Push your code to the repository
-   3. Enable GitHub Pages in repository settings
-   4. Set custom domain in GitHub Pages settings
-
-   ### Option 3: Traditional Web Hosting
-   - Upload files via FTP to your web hosting provider
-   - Configure web server settings (Apache/Nginx)
-
-3. **Post-Deployment**:
-   - Verify Impact tracking is working
-   - Test all links and features
-   - Monitor site performance
+- Latest hip-hop news and updates
+- Artist profiles and information
+- Music releases and reviews
+- Upcoming events and concerts
+- Dark/Light theme support
+- Responsive design
 
 ## Local Development
-```bash
-# Install dependencies
-npm install
 
-# Start local server
-npm start
-```
+1. Clone the repository
+2. Navigate to the project directory
+3. Run the Python development server:
+   ```bash
+   python server.py
+   ```
+4. Open http://localhost:8000 in your browser
+
+## Deployment Options
+
+### Option 1: Static Hosting (Recommended)
+Deploy to static hosting services like:
+- GitHub Pages
+- Netlify
+- Vercel
+- Firebase Hosting
+
+### Option 2: Python Server
+1. Install Python 3.x
+2. Run the server:
+   ```bash
+   python server.py
+   ```
+3. Access the site at http://localhost:8000
 
 ## Project Structure
+
 ```
-hip-hop-news-app/
-├── index.html
-├── latest.html
-├── music.html
-├── artists.html
-├── events.html
-├── styles.css
-├── events.css
-└── js/
-    ├── index.js
-    ├── latest.js
-    ├── music.js
-    ├── artists.js
-    └── events.js
+hiphop-news-app/
+├── index.html          # Home page
+├── latest.html         # Latest news
+├── artists.html        # Artist profiles
+├── music.html          # Music releases
+├── events.html         # Events page
+├── styles.css          # Main styles
+├── theme.js           # Theme switching
+├── app.js             # Main application logic
+├── server.py          # Development server
+└── README.md          # Documentation
 ```
+
+## Browser Support
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Contributing
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request

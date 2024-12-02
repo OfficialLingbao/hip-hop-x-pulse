@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Hip-Hop Pulse</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="theme.js" as="script">
+    
+    <!-- Defer non-critical resources -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Theme Script -->
+    <script src="theme.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Hip-Hop Pulse</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="latest.html">Latest</a></li>
+                <li><a href="artists.html">Artists</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <button class="nav-theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="privacy-policy-container">
+        <h1>Privacy Policy</h1>
+        <div class="privacy-content">
+            <section>
+                <h2>1. Introduction</h2>
+                <p>Welcome to Hip-Hop Pulse's Privacy Policy. We respect your privacy and are committed to protecting your personal data.</p>
+            </section>
+
+            <section>
+                <h2>2. Information We Collect</h2>
+                <p>We collect information that you provide directly to us, including:</p>
+                <ul>
+                    <li>Email addresses for newsletter subscriptions</li>
+                    <li>Usage data and preferences</li>
+                    <li>Information from cookies and similar technologies</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. How We Use Your Information</h2>
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li>Send you our newsletter and updates</li>
+                    <li>Improve our website and services</li>
+                    <li>Analyze website usage patterns</li>
+                    <li>Respond to your inquiries</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>4. Data Protection</h2>
+                <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+            </section>
+
+            <section>
+                <h2>5. Your Rights</h2>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Access your personal data</li>
+                    <li>Correct inaccurate data</li>
+                    <li>Request deletion of your data</li>
+                    <li>Withdraw consent at any time</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>6. Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                <p>Email: privacy@hiphoppulse.com</p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Newsletter Section -->
+    <div class="newsletter-section">
+        <div class="newsletter-content">
+            <div style="border-top: 2px solid gold; width: 100%; margin-bottom: 1rem;"></div>
+            <h2>Stay Tuned with Hip-Hop Pulse</h2>
+            <p>Get the latest hip-hop news, events, and exclusive updates!</p>
+            <form class="newsletter-form">
+                <input type="email" id="zipcode-input" placeholder="Enter your email" required>
+                <button type="button" id="zipcode-search-btn">Subscribe</button>
+            </form>
+            <div class="newsletter-message"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Hip-Hop Pulse</h3>
+                <p>Your source for hip-hop news and culture</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="latest.html">Latest</a></li>
+                    <li><a href="artists.html">Artists</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hip-Hop Pulse. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+</body>
+</html>

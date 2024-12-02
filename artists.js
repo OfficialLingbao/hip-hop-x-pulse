@@ -7,7 +7,8 @@ const artists = [
         category: "legendary",
         followers: "35M",
         albums: 13,
-        description: "Hip-hop icon and business mogul with multiple Grammy awards and groundbreaking achievements in music and entrepreneurship."
+        description: "Hip-hop icon and business mogul with multiple Grammy awards and groundbreaking achievements in music and entrepreneurship.",
+        instagram: "https://www.instagram.com/allthingsjayz/"
     },
     {
         id: 'kendrickLamar',
@@ -16,7 +17,8 @@ const artists = [
         category: "legendary",
         followers: "25M",
         albums: 5,
-        description: "Pulitzer Prize-winning rapper known for his intricate lyricism and powerful storytelling."
+        description: "Pulitzer Prize-winning rapper known for his intricate lyricism and powerful storytelling.",
+        instagram: "https://www.instagram.com/kendricklamar/"
     },
     {
         id: 'drake',
@@ -25,7 +27,8 @@ const artists = [
         category: "trending",
         followers: "50M",
         albums: 7,
-        description: "Chart-topping artist known for his versatile style and influential sound."
+        description: "Chart-topping artist known for his versatile style and influential sound.",
+        instagram: "https://www.instagram.com/champagnepapi/"
     },
     {
         id: 'jCole',
@@ -34,7 +37,8 @@ const artists = [
         category: "legendary",
         followers: "18M",
         albums: 6,
-        description: "Thoughtful lyricist and producer known for his conscious rap style."
+        description: "Thoughtful lyricist and producer known for his conscious rap style.",
+        instagram: "https://www.instagram.com/realcoleworld/"
     },
     {
         id: 'meganTheeStallion',
@@ -43,7 +47,8 @@ const artists = [
         category: "trending",
         followers: "12M",
         albums: 2,
-        description: "Grammy-winning rapper known for her confident delivery and powerful presence."
+        description: "Grammy-winning rapper known for her confident delivery and powerful presence.",
+        instagram: "https://www.instagram.com/theestallion/"
     },
     {
         id: 'tylerTheCreator',
@@ -52,7 +57,8 @@ const artists = [
         category: "legendary",
         followers: "15M",
         albums: 7,
-        description: "Multi-talented artist known for his innovative production and unique style."
+        description: "Multi-talented artist known for his innovative production and unique style.",
+        instagram: "https://www.deezer.com/us/artist/1194083"
     },
     {
         id: 'iceSpice',
@@ -61,7 +67,8 @@ const artists = [
         category: "new",
         followers: "8M",
         albums: 1,
-        description: "Rising star making waves with her distinctive New York drill sound."
+        description: "Rising star making waves with her distinctive New York drill sound.",
+        instagram: "https://www.instagram.com/icespice/"
     },
     {
         id: 'glorilla',
@@ -70,7 +77,8 @@ const artists = [
         category: "new",
         followers: "5M",
         albums: 1,
-        description: "Memphis rapper known for her energetic performances and breakthrough hits."
+        description: "Memphis rapper known for her energetic performances and breakthrough hits.",
+        instagram: "https://www.instagram.com/glorillapimp/?hl=en"
     },
     {
         id: 'doechii',
@@ -79,7 +87,8 @@ const artists = [
         category: "new",
         followers: "3M",
         albums: 1,
-        description: "TDE's dynamic artist blending rap, R&B, and experimental sounds with captivating performances."
+        description: "TDE's dynamic artist blending rap, R&B, and experimental sounds with captivating performances.",
+        instagram: "https://www.instagram.com/doechii/"
     },
     {
         id: 'xg',
@@ -88,12 +97,16 @@ const artists = [
         description: 'XG (エックスジー) is a seven-member Japanese girl group formed by XGALX. The group consists of Jurin, Chisa, Harvey, Hinata, Juria, Maya, and Cocona.',
         followers: '1.2M',
         monthlyListeners: '892K',
-        topTracks: ['GRL GVNG', 'WOKE UP', 'LEFT RIGHT', 'SHOOTING STAR']
+        topTracks: ['GRL GVNG', 'WOKE UP', 'LEFT RIGHT', 'SHOOTING STAR'],
+        instagram: "https://www.instagram.com/xgofficial/"
     }
 ];
 
 // Function to create an artist card
 function createArtistCard(artist) {
+    const profileLink = artist.instagram || `artist-profile.html?id=${artist.id}`;
+    const opensInNewTab = artist.instagram ? true : false;
+    
     return `
         <div class="artist-card ${artist.category}" data-category="${artist.category}">
             <div class="artist-image">
@@ -113,10 +126,7 @@ function createArtistCard(artist) {
                 </p>
                 <p class="artist-description">${artist.description}</p>
                 <div class="artist-actions">
-                    <button class="action-btn play-btn">
-                        <i class="fas fa-play"></i> Play
-                    </button>
-                    <a href="artist-profile.html?id=${artist.id}" class="action-btn profile-btn">
+                    <a href="${profileLink}" class="action-btn profile-btn" target="${opensInNewTab ? '_blank' : '_self'}">
                         <i class="fas fa-user"></i> Profile
                     </a>
                 </div>

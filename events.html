@@ -1,92 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events - Hip-Hop Pulse</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Hip-Hop Events - Hip-Hop Pulse</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="events.js" as="script">
+    <link rel="preload" href="theme.js" as="script">
+    
+    <!-- Defer non-critical resources -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="events.css">
+    
+    <style>
+        .newsletter-form input[type="email"] {
+            width: 300px; /* Adjust the width as needed */
+            padding: 10px; /* Adjust the padding as needed */
+            font-size: 16px; /* Adjust the font size as needed */
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">Hip-Hop Pulse</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="latest.html">Latest</a></li>
-            <li><a href="music.html">Music</a></li>
-            <li><a href="events.html" class="active">Events</a></li>
-        </ul>
-        <div class="search-bar">
-            <input type="text" placeholder="Search events...">
-            <button><i class="fas fa-search"></i></button>
-        </div>
-    </nav>
-
-    <!-- Event Highlights -->
-    <section class="event-highlights">
-        <h1>Featured Events</h1>
-        <div class="highlights-grid">
-            <!-- Featured events will be populated by JavaScript -->
-        </div>
-    </section>
-
-    <!-- Event Categories -->
-    <section class="event-categories">
-        <h2>Browse by Category</h2>
-        <div class="category-tabs">
-            <button class="category-tab active" data-category="all">All Events</button>
-            <button class="category-tab" data-category="concerts">Concerts</button>
-            <button class="category-tab" data-category="dance">Dance</button>
-            <button class="category-tab" data-category="film">Film</button>
-            <button class="category-tab" data-category="fashion">Fashion</button>
-        </div>
-        <div class="events-grid">
-            <!-- Events will be populated by JavaScript -->
-        </div>
-    </section>
-
-    <!-- Interactive Map -->
-    <section class="event-map">
-        <h2>Find Events Near You</h2>
-        <div id="map" class="map-container">
-            <!-- Map will be initialized by JavaScript -->
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>About Hip-Hop Pulse</h3>
-                <p>Your premier destination for hip-hop news, music, and events.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="latest.html">Latest News</a></li>
-                    <li><a href="music.html">Music</a></li>
-                    <li><a href="events.html">Events</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Connect With Us</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Hip-Hop Pulse</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="latest.html">Latest</a></li>
+                <li><a href="artists.html">Artists</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="events.html" class="active">Events</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search news...">
+                    <button><i class="fas fa-search"></i></button>
                 </div>
+                <button id="themeToggle" class="nav-theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="artists-banner">
+            <h1>Upcoming Hip-Hop Events</h1>
+            <p>Experience the live pulse of hip-hop culture</p>
+        </section>
+
+        <!-- Event Highlights -->
+        <section class="event-highlights">
+            <h1>Featured Events</h1>
+            <rssapp-magazine id="MYHZqVQniR81FUgF"></rssapp-magazine>
+            <script src="https://widget.rss.app/v1/magazine.js" type="text/javascript" async></script>
+            <div class="highlights-grid">
+                <!-- Featured events will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Event Categories -->
+        <section class="event-categories" style="display: none;">
+            <h2>Browse by Category</h2>
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">All Events</button>
+                <button class="category-tab" data-category="concerts">Concerts</button>
+                <button class="category-tab" data-category="dance">Dance</button>
+                <button class="category-tab" data-category="film">Film</button>
+                <button class="category-tab" data-category="fashion">Fashion</button>
+            </div>
+            <div class="events-grid">
+                <!-- Events will be populated by JavaScript -->
+            </div>
+        </section>
+        <!-- Newsletter Section -->
+        <div class="newsletter-section">
+            <div class="newsletter-content">
+                <div style="border-top: 2px solid gold; width: 100%; margin-bottom: 1rem;"></div>
+                <h2>Stay Tuned with Hip-Hop Pulse</h2>
+                <p>Get the latest hip-hop news, events, and exclusive updates!</p>
+                <form class="newsletter-form">
+                    <input type="email" id="zipcode-input" placeholder="Enter your email" required>
+                    <button type="button" id="zipcode-search-btn">Subscribe</button>
+                </form>
+                <div class="newsletter-message"></div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Hip-Hop Pulse. All rights reserved.</p>
+    </main>
+   <!-- Footer Section -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Hip-Hop Pulse</h3>
+            <p>Your premier source for hip-hop news, music, and culture. 
+                Stay updated with the latest in the hip-hop world.</p>
         </div>
-    </footer>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="latest.html">Latest News</a></li>
+                <li><a href="artists.html">Artists</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Hip-Hop Pulse. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a></p>
+    </div>
+</footer>
 
-    <script src="events.js"></script>
+
+    <script src="app.js" defer></script>
+    <script src="events.js" defer></script>
+    <script src="theme.js" defer></script>
 </body>
 </html>

@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Latest Hip-Hop News - Hip-Hop Pulse</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="latest.js" as="script">
+    <link rel="preload" href="theme.js" as="script">
+    
+    <!-- Defer non-critical resources -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Defer JavaScript -->
+    <script src="theme.js" defer></script>
 </head>
 <body>
     <header>
@@ -19,31 +30,65 @@
                 <li><a href="artists.html">Artists</a></li>
                 <li><a href="music.html">Music</a></li>
                 <li><a href="events.html">Events</a></li>
-            </ul>
-            <div class="search-bar">
-                <input type="text" placeholder="Search news...">
-                <button><i class="fas fa-search"></i></button>
+                            </ul>
+            <div class="nav-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <button class="nav-theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </nav>
     </header>
 
     <main>
+        <section class="latest-banner">
+            <h1>Latest Hip-Hop News</h1>
+            <p>Stay updated with the freshest news from AllHipHop and XXL Magazine.</p>
+        </section>
         <section class="latest-news-section">
-            <div class="section-header">
-                <h1>Latest Hip-Hop News</h1>
-                <p>Stay updated with the freshest news from AllHipHop and XXL Magazine</p>
-            </div>
             <div id="latestNewsGrid" class="news-grid">
                 <!-- News cards will be dynamically inserted here -->
             </div>
         </section>
-    </main>
 
-    <footer>
+       
+    </main>
+     <!--Footer-->
+     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 Hip-Hop Pulse. All rights reserved.</p>
+            <div class="footer-section">
+                <h3>About Hip-Hop X Pulse</h3>
+                <p>Your premier source for hip-hop news, music, and culture. Stay updated with the latest in the hip-hop world.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="latest.html">Latest News</a></li>
+                    <li><a href="artists.html">Artists</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hip-Hop Pulse. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a></p>
         </div>
     </footer>
+
 
     <script src="latest.js"></script>
 </body>

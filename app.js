@@ -179,8 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     "service_hjcenpv", 
                     "template_6inurhh", 
                     {
-                        email: email,
-                        message: "Thank you for subscribing to Hip-Hop Pulse Newsletter!"
+                        to_email: email,
+                        to_name: email.split('@')[0], 
+                        message: "Thank you for subscribing to Hip-Hop Pulse Newsletter!",
+                        reply_to: email
                     }
                 );
 

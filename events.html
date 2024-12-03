@@ -128,7 +128,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         (function() {
-            emailjs.init("12ieqnZd4BXy-55tV"); // Your EmailJS public key
+            // Initialize EmailJS with your public key
+            emailjs.init({
+                publicKey: "12ieqnZd4BXy-55tV",
+                blockHeadless: false, // Required for browser testing
+                limitRate: true // Enable rate limiting
+            });
         })();
     </script>
     <script src="theme.js" defer></script>

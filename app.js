@@ -156,6 +156,66 @@ searchBar.addEventListener('input', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     fetchNews();
     
+    // Newsletter subscription
+    const subscribeBtn = document.getElementById('zipcode-search-btn');
+    const emailInput = document.getElementById('zipcode-input');
+    const newsletterMessage = document.querySelector('.newsletter-message');
+
+    if (subscribeBtn && emailInput) {
+        subscribeBtn.addEventListener('click', async () => {
+            const email = emailInput.value.trim();
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                newsletterMessage.textContent = 'Please enter a valid email address.';
+                newsletterMessage.style.color = 'red';
+                return;
+            }
+
+            try {
+                // Send email using EmailJS
+                const response = await emailjs.send(
+                    "service_hjcenpv", 
+                    "template_6inurhh", 
+                    {
+                        email: email,
+                        message: "Thank you for subscribing to Hip-Hop Pulse Newsletter!"
+                    }
+                );
+
+                if (response.status === 200) {
+                    newsletterMessage.textContent = 'Thank you for subscribing! ';
+                    newsletterMessage.style.color = 'green';
+                    emailInput.value = '';
+
+                    // Optional: Store in localStorage to remember subscription
+                    localStorage.setItem('newsletter_subscribed', 'true');
+                    
+                    // Hide the message after 5 seconds
+                    setTimeout(() => {
+                        newsletterMessage.textContent = '';
+                    }, 5000);
+                } else {
+                    throw new Error('Subscription failed');
+                }
+                
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                newsletterMessage.textContent = 'Subscription failed. Please try again later.';
+                newsletterMessage.style.color = 'red';
+            }
+        });
+
+        // Enter key support
+        emailInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                subscribeBtn.click();
+            }
+        });
+    }
+    
     // Refresh news every 5 minutes
     setInterval(fetchNews, 5 * 60 * 1000);
 });

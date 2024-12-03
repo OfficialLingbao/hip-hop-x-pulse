@@ -771,7 +771,7 @@ body {
     height: 100%; /* Ensure full height of the grid cell */
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
@@ -1727,35 +1727,48 @@ footer {
     display: flex;
     gap: 1rem;
     justify-content: center;
-    margin-top: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .newsletter-form input[type="email"] {
-    padding: 0.8rem;
-    border: 1px solid #ddd;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--border-color);
     border-radius: 4px;
-    width: 60%;
     font-size: 1rem;
+    min-width: 250px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+}
+
+.newsletter-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
 }
 
 .newsletter-form button {
     padding: 0.8rem 1.5rem;
-    background-color: gold;
-    color: black;
+    background: var(--accent-color);
+    color: white;
     border: none;
     border-radius: 4px;
+    font-size: 1rem;
     cursor: pointer;
-    font-weight: 600;
     transition: background-color 0.3s ease;
 }
 
 .newsletter-form button:hover {
-    background-color: #ffd700;
+    background: var(--accent-hover);
 }
 
 .newsletter-message {
     margin-top: 1rem;
-    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 4px;
+    text-align: center;
 }
 
 /* Privacy Policy Styles */

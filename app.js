@@ -78,8 +78,14 @@ async function fetchNews() {
             const newsGrid = document.querySelector('.latest-news .news-grid');
             const featuredNews = document.querySelector('.featured-news .news-grid');
             
-            // Display the first article as featured news
-            if (data.items.length > 0) {
+            // Only proceed if we're on a page with news elements
+            if (!newsGrid && !featuredNews) {
+                console.log('No news elements found on this page');
+                return;
+            }
+            
+            // Display the first article as featured news if the element exists
+            if (featuredNews && data.items.length > 0) {
                 const featuredArticle = data.items[0];
                 featuredNews.innerHTML = createNewsCard({
                     ...featuredArticle,
@@ -87,9 +93,11 @@ async function fetchNews() {
                 });
             }
             
-            // Display the rest of the articles in the news grid
-            const newsHTML = data.items.slice(1, 7).map(article => createNewsCard(article)).join('');
-            newsGrid.innerHTML = newsHTML;
+            // Display the rest of the articles in the news grid if the element exists
+            if (newsGrid && data.items.length > 1) {
+                const newsHTML = data.items.slice(1, 7).map(article => createNewsCard(article)).join('');
+                newsGrid.innerHTML = newsHTML;
+            }
 
             // Add fade-in animation to all cards
             document.querySelectorAll('.news-card').forEach(card => {
@@ -110,6 +118,12 @@ async function fetchNews() {
 
 // Fallback news in case the API fails
 function displayFallbackNews() {
+    const newsGrid = document.querySelector('.latest-news .news-grid');
+    if (!newsGrid) {
+        console.log('No news grid element found for fallback news');
+        return;
+    }
+
     const fallbackNews = [
         {
             title: "Unable to load news from AllHipHop.com",
@@ -120,7 +134,6 @@ function displayFallbackNews() {
         }
     ];
     
-    const newsGrid = document.querySelector('.latest-news .news-grid');
     newsGrid.innerHTML = createNewsCard(fallbackNews[0]);
 }
 
@@ -174,38 +187,53 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
+                console.log('Attempting to send email with parameters:', {
+                    service_id: "service_hjcenpv",
+                    template_id: "template_6inurhh",
+                    email: email,
+                });
+
+                const templateParams = {
+                    from_name: "Hip-Hop Pulse",
+                    to_name: email.split('@')[0],
+                    message: "Thank you for subscribing to Hip-Hop Pulse Newsletter!",
+                    user_email: email,
+                    reply_to: email
+                };
+
+                console.log('Template parameters:', templateParams);
+
                 // Send email using EmailJS
                 const response = await emailjs.send(
-                    "service_hjcenpv", 
-                    "template_6inurhh", 
-                    {
-                        to_email: email,
-                        to_name: email.split('@')[0], 
-                        message: "Thank you for subscribing to Hip-Hop Pulse Newsletter!",
-                        reply_to: email
-                    }
+                    "service_hjcenpv",
+                    "template_6inurhh",
+                    templateParams
                 );
 
-                if (response.status === 200) {
-                    newsletterMessage.textContent = 'Thank you for subscribing! ';
-                    newsletterMessage.style.color = 'green';
-                    emailInput.value = '';
+                console.log('EmailJS Response:', response);
 
-                    // Optional: Store in localStorage to remember subscription
-                    localStorage.setItem('newsletter_subscribed', 'true');
-                    
-                    // Hide the message after 5 seconds
-                    setTimeout(() => {
-                        newsletterMessage.textContent = '';
-                    }, 5000);
+                if (response.status === 200) {
+                    newsletterMessage.textContent = 'Thank you for subscribing!';
+                    newsletterMessage.style.color = '#4CAF50';
+                    emailInput.value = '';
                 } else {
-                    throw new Error('Subscription failed');
+                    throw new Error(`Unexpected status: ${response.status}`);
+                }
+            } catch (error) {
+                console.error('EmailJS Error:', error);
+                console.error('Error Details:', {
+                    message: error.message,
+                    name: error.name,
+                    stack: error.stack
+                });
+                
+                let errorMessage = 'Subscription failed. Please try again later.';
+                if (error.text) {
+                    errorMessage += ` Error: ${error.text}`;
                 }
                 
-            } catch (error) {
-                console.error('Newsletter subscription error:', error);
-                newsletterMessage.textContent = 'Subscription failed. Please try again later.';
-                newsletterMessage.style.color = 'red';
+                newsletterMessage.textContent = errorMessage;
+                newsletterMessage.style.color = '#f44336';
             }
         });
 

@@ -139,11 +139,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         (function() {
-            // Initialize EmailJS with your public key
+            // Initialize EmailJS with your public key and debug mode
             emailjs.init({
                 publicKey: "12ieqnZd4BXy-55tV",
-                blockHeadless: false, // Required for browser testing
-                limitRate: true // Enable rate limiting
+                blockHeadless: false,
+                limitRate: true,
+                debug: true // Enable debug mode for better error messages
+            }).then(() => {
+                console.log('EmailJS initialized successfully');
+            }).catch(error => {
+                console.error('EmailJS initialization error:', error);
             });
         })();
     </script>

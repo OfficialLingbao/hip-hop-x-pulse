@@ -101,55 +101,49 @@ function createEventCard(event) {
     `;
 }
 
-// Newsletter subscription functionality
+// Event subscription handling
 async function handleSubscription(event) {
     event.preventDefault();
-    
-    const emailInput = document.getElementById('zipcode-input');
-    if (!emailInput) {
-        console.error('Email input not found');
-        return;
-    }
-    
+    const emailInput = document.getElementById('event-email');
     const email = emailInput.value.trim();
-    const messageDiv = document.querySelector('.newsletter-message');
-    
-    if (!messageDiv) {
-        console.error('Newsletter message div not found');
-        return;
-    }
-    
+    const messageElement = document.querySelector('.subscription-message');
+
     // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-        messageDiv.textContent = 'Please enter a valid email address';
-        messageDiv.className = 'newsletter-message error';
+        messageElement.textContent = 'Please enter a valid email address.';
+        messageElement.style.color = '#f44336';
         return;
     }
 
     try {
-        const response = await fetch('http://localhost:5000/api/subscribe', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email })
-        });
+        const templateParams = {
+            from_name: "Hip-Hop Pulse Events",
+            to_name: email.split('@')[0],
+            message: "Thank you for subscribing to Hip-Hop Pulse Events! You'll receive updates about upcoming events.",
+            user_email: email,
+            reply_to: email
+        };
 
-        const data = await response.json();
+        console.log('Sending event subscription email:', templateParams);
 
-        if (response.ok) {
-            messageDiv.textContent = data.message || 'Subscription successful!';
-            messageDiv.className = 'newsletter-message success';
+        const response = await emailjs.send(
+            "service_hjcenpv",
+            "template_6inurhh",
+            templateParams
+        );
+
+        if (response.status === 200) {
+            messageElement.textContent = 'Thank you for subscribing to event updates!';
+            messageElement.style.color = '#4CAF50';
             emailInput.value = '';
         } else {
-            messageDiv.textContent = data.error || 'Subscription failed';
-            messageDiv.className = 'newsletter-message error';
+            throw new Error('Failed to subscribe');
         }
     } catch (error) {
         console.error('Subscription error:', error);
-        messageDiv.textContent = 'Failed to subscribe. Please try again later.';
-        messageDiv.className = 'newsletter-message error';
+        messageElement.textContent = 'Failed to subscribe. Please try again later.';
+        messageElement.style.color = '#f44336';
     }
 }
 
@@ -184,21 +178,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Newsletter subscription event listener
-    const subscribeButton = document.getElementById('zipcode-search-btn');
-    const emailInput = document.getElementById('zipcode-input');
-    
-    if (subscribeButton && emailInput) {
-        subscribeButton.addEventListener('click', handleSubscription);
-        
-        // Add enter key support
-        emailInput.addEventListener('keypress', (event) => {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                handleSubscription(event);
-            }
-        });
-    } else {
-        console.error('Newsletter subscription elements not found');
+    // Add event listeners when the document is loaded
+    const subscribeForm = document.getElementById('event-subscribe-form');
+    if (subscribeForm) {
+        subscribeForm.addEventListener('submit', handleSubscription);
     }
 });

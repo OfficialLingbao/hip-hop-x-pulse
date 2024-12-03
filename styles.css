@@ -1495,29 +1495,54 @@ footer {
 
 /* Latest News Banner Styles */
 .latest-banner {
-    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-red) 100%);
-    padding: 4rem 2rem;
+    background: url('banner.png') no-repeat center center;
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-bottom: 2rem;
+    margin: 0;
+    position: relative;
 }
 
-.latest-banner h1 {
-    color: #FFFFFF !important;
-    font-size: 3rem;
+.latest-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    padding: 0 1rem;
+}
+
+.banner-content h1 {
+    font-size: 2.5rem;
     font-weight: 800;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0;
 }
 
-.latest-banner p {
-    color: #FFFFFF !important;
+.banner-content p {
     font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    opacity: 0.9;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    max-width: 600px;
+}
+
+@media (max-width: 768px) {
+    .banner-content h1 {
+        font-size: 2rem;
+    }
+    
+    .banner-content p {
+        font-size: 1rem;
+    }
 }
 
 /* Latest News Content Styles */
@@ -1955,22 +1980,17 @@ footer {
 /* Banner styling */
 .latest-banner {
     padding: 2rem;
-    margin: 0;
-    background: var(--primary-bg);
     text-align: center;
+    background: var(--primary-bg);
     border-bottom: 1px solid var(--border-color);
 }
 
 .latest-banner h1 {
     margin-bottom: 0.5rem;
-    font-size: 2.5rem;
-    color: var(--text-primary);
 }
 
 .latest-banner p {
     color: var(--text-secondary);
-    font-size: 1.1rem;
-    margin: 0;
 }
 
 /* Space between banner and RSS feeds */
@@ -1988,4 +2008,37 @@ footer {
     height: 2px;
     background: var(--accent-color);
     margin: 1rem auto 0;
+}
+
+.spotify-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #1DB954;
+    text-decoration: none;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: rgba(29, 185, 84, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.spotify-link:hover {
+    background: rgba(29, 185, 84, 0.2);
+    transform: translateY(-2px);
+}
+
+.spotify-link i {
+    font-size: 1.2em;
+}
+
+.card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }

@@ -47,9 +47,67 @@
             <h1>Featured Artists</h1>
             <p>Discover and explore the world of hip-hop artists</p>
         </section>
+        
+        <section class="featured-artists">
+            <div class="artists-grid">
+                <!-- Kendrick Lamar -->
+                <div class="artist-card">
+                    <a href="[artist-profile-url]" class="card-link"></a>
+                    <div class="artist-image">
+                        <img src="images/artists/kendrick-lamar.jpg" alt="Kendrick Lamar">
+                        <div class="artist-overlay">
+                            <div class="social-links">
+                                <a href="https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg" target="_blank" aria-label="Kendrick Lamar on Spotify">
+                                    <i class="fab fa-spotify"></i>
+                                </a>
+                                <a href="https://www.instagram.com/kendricklamar/" target="_blank" aria-label="Kendrick Lamar on Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://twitter.com/kendricklamar" target="_blank" aria-label="Kendrick Lamar on Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-info">
+                        <h3>Kendrick Lamar</h3>
+                        <p class="artist-genre">Hip-Hop/Rap</p>
+                        <p class="artist-bio">Pulitzer Prize-winning rapper known for his intricate lyricism and powerful storytelling.</p>
+                    </div>
+                </div>
+
+                <!-- Drake -->
+                <div class="artist-card">
+                    <a href="[artist-profile-url]" class="card-link"></a>
+                    <div class="artist-image">
+                        <img src="images/artists/drake.jpg" alt="Drake">
+                        <div class="artist-overlay">
+                            <div class="social-links">
+                                <a href="https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4" target="_blank" aria-label="Drake on Spotify">
+                                    <i class="fab fa-spotify"></i>
+                                </a>
+                                <a href="https://www.instagram.com/champagnepapi/" target="_blank" aria-label="Drake on Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://twitter.com/drake" target="_blank" aria-label="Drake on Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="artist-info">
+                        <h3>Drake</h3>
+                        <p class="artist-genre">Hip-Hop/R&B</p>
+                        <p class="artist-bio">Chart-topping artist known for his versatile style and influential sound.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!--Kendrick Lamar-->
         <section class="artists-grid">
             <div class="artist-card">
+                <a href="[artist-profile-url]" class="card-link"></a>
                 <img src="https://variety.com/wp-content/uploads/2017/11/kendrick-lamar-variety-hitmakers.jpg?w=1000&h=562&crop=1" alt="Kendrick Lamar" class="artist-image">
                 <div class="artist-info">
                     <h3>Kendrick Lamar</h3>
@@ -62,6 +120,7 @@
             </div>
             <!--J. Cole-->
             <div class="artist-card">
+                <a href="[artist-profile-url]" class="card-link"></a>
                 <img src="https://hips.hearstapps.com/hmg-prod/images/j_cole_photo_by_isaac_brekken_wireimage_getty_503069628.jpg?resize=1200:*" alt="J. Cole" class="artist-image">
                 <div class="artist-info">
                     <h3>J. Cole</h3>
@@ -74,6 +133,7 @@
             </div>
             <!--Drake-->
             <div class="artist-card">
+                <a href="[artist-profile-url]" class="card-link"></a>
                 <img src="https://media.newyorker.com/photos/66d0e1a0dbfcd564cf6b198b/master/w_2240,c_limit/Brickner-Wood-Drake.jpg" alt="Drake" class="artist-image">
                 <div class="artist-info">
                     <h3>Drake</h3>
@@ -86,6 +146,7 @@
             </div>
             <!--Megan Thee Stallion-->
             <div class="artist-card">
+                <a href="[artist-profile-url]" class="card-link"></a>
                 <img src="https://www.hollywoodreporter.com/wp-content/uploads/2024/04/MegTheStallionGettyImages-2148895255.jpg?w=1296&h=730&crop=1&resize=1000%2C563" alt="Megan Thee Stallion" class="artist-image">
                 <div class="artist-info">
                     <h3>Megan Thee Stallion</h3>
@@ -98,6 +159,7 @@
             </div>
             <!--Tyler, the Creator-->
             <div class="artist-card">
+                <a href="[artist-profile-url]" class="card-link"></a>
                 <img src="https://www.musicbusinessworldwide.com/files/2024/01/Tyler-the-Creator-648x379.jpg" alt="Tyler, the Creator" class="artist-image">
                 <div class="artist-info">
                     <h3>Tyler, the Creator</h3>
@@ -110,6 +172,7 @@
             </div>
             <!--Jay-Z-->
             <div class="artist-card">
+                <a href="[artist-profile-url]" class="card-link"></a>
                 <img src="https://thegrio.com/wp-content/uploads/2024/09/Los-Angeles-Premiere-Of-Sony-Pictures-The-Book-Of-Clarence---Arrivals-1911124754.jpg?w=1074&h=605&crop=1" alt="Jay-Z" class="artist-image">
                 <div class="artist-info">
                     <h3>Jay-Z</h3>
@@ -138,6 +201,20 @@
                 border: 1px solid #ddd;
                 border-radius: 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                position: relative;
+                overflow: hidden;
+                transition: transform 0.3s ease;
+                cursor: pointer;
+                user-select: none;
+            }
+
+            .artist-card a.card-link {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
             }
 
             .artist-image {
@@ -156,24 +233,90 @@
                 justify-content: space-between;
                 margin-top: 20px;
             }
+
+            .featured-artists {
+                padding: 2rem;
+            }
+
+            .artist-card {
+                position: relative;
+                overflow: hidden;
+                transition: transform 0.3s ease;
+            }
+
+            .artist-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .artist-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .artist-card:hover .artist-overlay {
+                opacity: 1;
+            }
+
+            .social-links {
+                position: relative;
+                z-index: 2; /* Place above card-link */
+            }
+
+            .social-links a {
+                color: white;
+                font-size: 1.5rem;
+                margin: 0 10px;
+                transition: transform 0.3s ease;
+                position: relative;
+                z-index: 2;
+            }
+
+            .social-links a:hover {
+                transform: scale(1.2);
+            }
+
+            /* Optional: Add active state */
+            .artist-card:active {
+                transform: translateY(0);
+            }
         </style>
 
         <!--Trending Artists-->
         <!--Music Section-->
     </main>
     <!-- Newsletter Section -->
-    <div class="newsletter-section">
-        <div class="newsletter-content">
-            <div style="border-top: 2px solid gold; width: 100%; margin-bottom: 1rem;"></div>
-            <h2>Stay Tuned with Hip-Hop Pulse</h2>
-            <p>Get the latest hip-hop news, events, and exclusive updates!</p>
-            <form class="newsletter-form">
-                <input type="email" id="zipcode-input" placeholder="Enter your email" required>
-                <button type="button" id="zipcode-search-btn">Subscribe</button>
-            </form>
-            <div class="newsletter-message"></div>
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <div class="newsletter-content">
+                <div class="newsletter-header">
+                    <h2>Stay Connected with Hip-Hop Pulse</h2>
+                    <p>Get exclusive updates, news, and events delivered to your inbox</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="input-group">
+                        <input 
+                            type="email" 
+                            id="newsletter-email" 
+                            placeholder="Enter your email address"
+                            required 
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        >
+                        <button type="submit" class="subscribe-btn">Subscribe</button>
+                    </div>
+                    <div class="newsletter-message" id="newsletter-message"></div>
+                </form>
+            </div>
         </div>
-    </div>
+    </section>
     <!--Footer-->
     <footer>
         <div class="footer-content">

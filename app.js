@@ -249,3 +249,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Refresh news every 5 minutes
     setInterval(fetchNews, 5 * 60 * 1000);
 });
+
+// Add to your app.js or create newsletter.js
+document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.getElementById('newsletterForm');
+    const messageDiv = document.getElementById('newsletter-message');
+
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('newsletter-email').value;
+            
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                messageDiv.textContent = 'Thank you for subscribing!';
+                messageDiv.className = 'newsletter-message success';
+                newsletterForm.reset();
+                
+                // Clear success message after 3 seconds
+                setTimeout(() => {
+                    messageDiv.textContent = '';
+                    messageDiv.className = 'newsletter-message';
+                }, 3000);
+                
+            } catch (error) {
+                messageDiv.textContent = 'Something went wrong. Please try again.';
+                messageDiv.className = 'newsletter-message error';
+            }
+        });
+    }
+});

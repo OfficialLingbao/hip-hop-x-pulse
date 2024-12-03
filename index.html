@@ -14,12 +14,105 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            margin-top: 1rem; /* Reduced from default */
+            padding-top: 1rem; /* Added controlled padding */
         }
+
         .news-grid {
             width: 100%;
+            margin-top: 1rem; /* Reduced space between title and grid */
         }
+
+        .latest-news h2 {
+            margin: 0; /* Remove default margin */
+            padding-bottom: 1rem; /* Add space below heading */
+        }
+
         .view-more {
-            margin-top: 20px;
+            margin-top: 1rem; /* Reduced from 20px */
+        }
+
+        .featured-news + .latest-news {
+            margin-top: 0;
+        }
+
+        /* Add to existing styles */
+        .news-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .news-card-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 1rem;
+        }
+
+        .news-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .news-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .artists-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('../images/banner-bg.jpg') no-repeat center center;
+            background-size: cover;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            border-bottom: 3px solid #FFD700;
+        }
+
+        .artists-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: #FFD700;
+        }
+
+        .artists-banner p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        /* Gold accent line under heading */
+        .artists-banner h1::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: #FFD700;
+            margin: 1rem auto 0;
         }
     </style>
     <!-- STAT Tag Script -->
@@ -34,11 +127,10 @@
         <nav class="navbar">
             <div class="logo">Hip-Hop Pulse</div>
             <ul class="nav-links">
-                <li><a class='active' href='/'>Home</a></li>
-                <li><a href='latest.html'>Latest</a></li>
-                <li><a href='/artists.html'>Artists</a></li>
-                <li><a href='/music.html'>Music</a></li>
-                <li><a href='/events.html'>Events</a></li>
+                <li><a class='active' href="./index.html">Home</a></li>
+                <li><a href="./artists.html">Artists</a></li>
+                <li><a href="./music.html">Music</a></li>
+                <li><a href="./events.html">Events</a></li>
             </ul>
             <div class="nav-right">
                 <div class="search-bar">
@@ -82,35 +174,26 @@
                 </div>
             </div>
             <div class="view-more">
-                <a class='view-more-button' href='latest.html'>View More Latest News</a>
+                <a class='view-more-button' href='/latest'>View More Latest News</a>
             </div>
         </section>
-      
+        <!-- Update news card HTML structure -->
+        
     </main>
+    
 <!-- Newsletter Section -->
-<section class="newsletter-section">
-    <div class="newsletter-container">
-        <div class="newsletter-content">
-            <div class="newsletter-header">
-                <h2>Stay Connected with Hip-Hop Pulse</h2>
-                <p>Get exclusive updates, news, and events delivered to your inbox</p>
-            </div>
-            <form class="newsletter-form" id="newsletterForm">
-                <div class="input-group">
-                    <input 
-                        type="email" 
-                        id="newsletter-email" 
-                        placeholder="Enter your email address"
-                        required 
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                    >
-                    <button type="submit" class="subscribe-btn">Subscribe</button>
-                </div>
-                <div class="newsletter-message" id="newsletter-message"></div>
-            </form>
-        </div>
+<div class="newsletter-section">
+    <div class="newsletter-content">
+        <div style="border-top: 2px solid gold; width: 100%; margin-bottom: 1rem;"></div>
+        <h2>Stay Tuned with Hip-Hop Pulse</h2>
+        <p>Get the latest hip-hop news, events, and exclusive updates!</p>
+        <form class="newsletter-form">
+            <input type="email" id="zipcode-input" placeholder="Enter your email" required>
+            <button type="button" id="zipcode-search-btn">Subscribe</button>
+        </form>
+        <div class="newsletter-message"></div>
     </div>
-</section>
+</div>
 
 <!--Footer-->
     <footer>
@@ -123,10 +206,9 @@
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="latest.html">Latest News</a></li>
-                    <li><a href="artists.html">Artists</a></li>
-                    <li><a href="music.html">Music</a></li>
-                    <li><a href="events.html">Events</a></li>
+                    <li><a href='/artists'>Artists</a></li>
+                    <li><a href='/music'>Music</a></li>
+                    <li><a href='/events'>Events</a></li>
                 </ul>
             </div>
             
@@ -134,15 +216,14 @@
                 <h3>Follow Us</h3>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/hiphopxpulse/"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
         <!-- Footer Bottom -->
         <div class="footer-bottom">
-            <p>&copy; 2024 Hip-Hop Pulse. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a></p>
+            <p>&copy; 2024 Hip-Hop Pulse. All rights reserved. | <a href='/privacy-policy'>Privacy Policy</a></p>
         </div>
     </footer>
 

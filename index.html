@@ -114,6 +114,104 @@
             background: #FFD700;
             margin: 1rem auto 0;
         }
+
+        /* Update RSS feed section styles */
+        .news-grid rssapp-wall {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .news-grid rssapp-wall article {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .news-grid rssapp-wall article:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-grid rssapp-wall img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-grid rssapp-wall .content {
+            padding: 1rem;
+        }
+
+        .news-grid rssapp-wall h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .news-grid rssapp-wall p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .rss-feed-section {
+            padding: 1rem;
+            background: var(--primary-bg);
+            width: 100%;
+        }
+
+        .rss-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem; /* Reduced gap for better space utilization */
+            max-width: 100%; /* Take full width */
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .rss-column {
+            min-width: 0;
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 0.75rem; /* Slightly reduced padding */
+            width: 100%;
+        }
+
+        rssapp-wall {
+            height: 600px;
+            overflow-y: auto;
+            width: 100%;
+        }
+
+        @media (max-width: 1400px) {
+            .rss-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.75rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .rss-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .rss-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Add consistent heading styles */
+        .featured-news h1,
+        .rss-feed-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
     </style>
     <!-- STAT Tag Script -->
     <script>
@@ -164,21 +262,44 @@
             </div>
         </section>
 
-        <section class="latest-news">
-            <h1>Latest Updates</h1>
-            <div class="news-grid">
-                <!-- More news items will be loaded here -->
-                <div class="loading-message">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <p>Loading latest hip-hop news...</p>
-                </div>
-            </div>
-            <div class="view-more">
-                <a class='view-more-button' href='/latest'>View More Latest News</a>
-            </div>
-        </section>
+        
         <!-- Update news card HTML structure -->
         
+        <!-- Add RSS Feed Section before newsletter -->
+        <section class="rss-feed-section">
+            <h1>Hip-Hop News Feed</h1>  <!-- Changed from h2 to h1 -->
+            <div class="rss-grid">
+                <!-- Column 1 - AllHipHop -->
+                <div class="rss-column">
+                    <h3>AllHipHop</h3>
+                    <rssapp-wall id="4wBmwZCnKJOk1mDW"></rssapp-wall>
+                </div>
+                
+                <!-- Column 2 - XXL -->
+                <div class="rss-column">
+                    <h3>XXL Magazine</h3>
+                    <rssapp-wall id="eLIabSbFfr7qcj1H"></rssapp-wall>
+                </div>
+                
+                <!-- Column 3 - HipHopDX -->
+                <div class="rss-column">
+                    <h3>HipHopDX</h3>
+                    <rssapp-wall id="MYHZqVQniR81FUgF"></rssapp-wall>
+                </div>
+                
+                <!-- Column 4 - Complex -->
+                <div class="rss-column">
+                    <h3>Complex</h3>
+                    <rssapp-wall id="tbFb7dgsYcQEyoaK"></rssapp-wall>
+                </div>
+            </div>
+            <script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
+        </section>
+
+        <!-- Newsletter Section -->
+        <div class="newsletter-section">
+            <!-- Existing newsletter content -->
+        </div>
     </main>
     
 <!-- Newsletter Section -->
